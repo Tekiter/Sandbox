@@ -24,5 +24,12 @@ namespace WPF_Sandbox
         {
             InitializeComponent();
         }
+
+        private void uptrend_click(object sender, RoutedEventArgs e)
+        {
+            uptrend win = new uptrend();
+            win.Show();
+            
+        }
     }
 }

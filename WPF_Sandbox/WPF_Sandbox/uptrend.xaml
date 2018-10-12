@@ -1,0 +1,13 @@
+﻿<Window x:Class="WPF_Sandbox.uptrend"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Sandbox"
+        mc:Ignorable="d"
+        Title="uptrend" Height="400" Width="292">
+    <Grid>
+        <Button VerticalAlignment="Top" Content="새로고침" Height="30" Margin="10,10,10.4,0" Click="reload_click"/>
+        <ListBox x:Name="lst" Margin="10,45,10,9.6"/>
+    </Grid>
+</Window>
