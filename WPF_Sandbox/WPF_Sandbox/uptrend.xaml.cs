@@ -20,12 +20,12 @@ namespace WPF_Sandbox
     /// </summary>
     public partial class uptrend : Window
     {
-        
+
 
         public uptrend()
         {
             InitializeComponent();
-            
+
         }
 
         private void reload_click(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace WPF_Sandbox
             lst.Items.Clear();
             for (int i = 0; i < result.Count; i++)
             {
-                lst.Items.Add(i.ToString() + "위: " + result[i]);   
+                lst.Items.Add((i + 1).ToString() + "위: " + result[i]);
             }
         }
 
@@ -48,11 +48,11 @@ namespace WPF_Sandbox
 
             str = StringSplit(StringSplit(str, "<ul class=\"ah_l\" data-list=\"1to10\"")[1], "<p class=\"ah_time\"")[0];
 
-            string[] slices = StringSplit(str, "<li class=\"ah_item") ;
-        
+            string[] slices = StringSplit(str, "<li class=\"ah_item");
+
             for (int i = 1; i <= 20; i++)
             {
-                lstt.Add(StringSplit( StringSplit(slices[i], "<span class=\"ah_k\">")[1], "</span>")[0]);
+                lstt.Add(StringSplit(StringSplit(slices[i], "<span class=\"ah_k\">")[1], "</span>")[0]);
             }
             return lstt;
         }
