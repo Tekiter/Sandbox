@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="uptrend" Height="400" Width="292">
     <Grid>
-        <Button VerticalAlignment="Top" Content="새로고침" Height="30" Margin="10,10,10.4,0" Click="reload_click"/>
+        <Button VerticalAlignment="Top" Content="새로고쳤다" Height="30" Margin="10,10,10.4,0" Click="reload_click"/>
         <ListBox x:Name="lst" Margin="10,45,10,9.6"/>
     </Grid>
 </Window>
