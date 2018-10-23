@@ -15,10 +15,12 @@
                     <Setter Property="Margin" Value="5"/>
                 </Style>
             </WrapPanel.Resources>
+<<<<<<< HEAD
             <Button Content="실검 list" Click="uptrend_click" />
             <Button Content="merong" Click="merong_click" />
-            
+=======
+            <Button Content="실검 리스트" Click="uptrend_click" />
+>>>>>>> 6c7fa6082f683618df4c5f07cd1e1d65b649d4de
         </WrapPanel>
-		<Button Content="하하하" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="326,35,0,0"/>
-	</Grid>
+    </Grid>
 </Window>
