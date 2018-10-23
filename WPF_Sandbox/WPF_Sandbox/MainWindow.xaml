@@ -17,7 +17,7 @@
             </WrapPanel.Resources>
             <Button Content="실검 list" Click="uptrend_click" />
             <Button Content="merong" Click="merong_click" />
-            <Button Content="fuck" Click="merong_click" />
+            
         </WrapPanel>
 	</Grid>
 </Window>
