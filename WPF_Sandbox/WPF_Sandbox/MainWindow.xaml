@@ -19,6 +19,5 @@
             <Button Content="merong" Click="merong_click" />
             <Button Content="fuck" Click="merong_click" />
         </WrapPanel>
-		<Button Content="하하하" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="326,35,0,0"/>
 	</Grid>
 </Window>
