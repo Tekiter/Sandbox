@@ -31,5 +31,10 @@ namespace WPF_Sandbox
             win.Show();
             
         }
+
+        private void merong_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("메롱~~!");
+        }
     }
 }
