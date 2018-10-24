@@ -36,5 +36,15 @@ namespace WPF_Sandbox
         {
             MessageBox.Show("메롱~~!");
         }
+
+        private void hi2trend_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void solartrend_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

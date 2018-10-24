@@ -17,7 +17,8 @@
             </WrapPanel.Resources>
             <Button Content="실검 list" Click="uptrend_click" />
             <Button Content="merong" Click="merong_click" />
-            
+            <Button Content="hi2yeoni 실검" Click="hi2trend_click" />
+            <Button Content="solar 실검" Click="solartrend_click" />
         </WrapPanel>
 	</Grid>
 </Window>
