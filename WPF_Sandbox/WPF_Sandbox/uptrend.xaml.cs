@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net;
+using System.Collections.Specialized;
 
 namespace WPF_Sandbox
 {
@@ -58,16 +59,37 @@ namespace WPF_Sandbox
 
         string GetHtmlFromWeb(string url)
         {
-            WebClient client = new WebClient();
-            client.Encoding = Encoding.UTF8;
-            string str = client.DownloadString("http://www.naver.com/");
-            client.Dispose();
-            return str;
+            WebClass wc = new WebClass();
+            return wc.GET(url);
         }
 
         string[] StringSplit(string str, string sep)
         {
             return str.Split(new string[] { sep }, StringSplitOptions.RemoveEmptyEntries);
         }
+    }
+
+    public class WebClass
+    {
+        private WebClient wc;
+
+        public WebClass()
+        {
+            wc = new WebClient();
+            wc.Encoding = Encoding.UTF8;
+        }
+
+        public string GET(string url)
+        {
+            return wc.DownloadString(url);
+        }
+
+        public string POST(string url, NameValueCollection param)
+        {
+            byte[] response = wc.UploadValues(url, param);
+            return Encoding.UTF8.GetString(response);
+        }
+
+
     }
 }
