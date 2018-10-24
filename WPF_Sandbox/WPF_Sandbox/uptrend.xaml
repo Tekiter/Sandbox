@@ -6,6 +6,45 @@
         xmlns:local="clr-namespace:WPF_Sandbox"
         mc:Ignorable="d"
         Title="uptrend" Height="400" Width="292">
+    <Window.Resources>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <Border>
+                            <ScrollViewer>
+                                <StackPanel IsItemsHost="True"/>
+                            </ScrollViewer>
+                        </Border>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border Name="outerborder">
+                            <Grid>
+                                <Border Name="innerborder" BorderThickness="4,0,0,0" BorderBrush="#FF23D953" Visibility="Hidden"></Border>
+                                <ContentPresenter Margin="7,3,2,3"/>
+                                <Border Name="hoverborder" Margin="0,0,0,0" BorderThickness="1"  Visibility="Hidden" BorderBrush="#FF21D63D"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True" >
+                                <Setter TargetName="innerborder" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter TargetName="hoverborder" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Button VerticalAlignment="Top" Content="새로고쳤다" Height="30" Margin="10,10,10.4,0" Click="reload_click"/>
         <ListBox x:Name="lst" Margin="10,45,10,9.6"/>

@@ -40,9 +40,8 @@ namespace WPF_Sandbox
 
         List<string> GetList()
         {
-            WebClient client = new WebClient();
-            client.Encoding = Encoding.UTF8;
-            string str = client.DownloadString("http://www.naver.com/");
+
+            string str = GetHtmlFromWeb("http://www.naver.com");
             List<string> lstt = new List<string>();
 
 
@@ -55,6 +54,15 @@ namespace WPF_Sandbox
                 lstt.Add(StringSplit(StringSplit(slices[i], "<span class=\"ah_k\">")[1], "</span>")[0]);
             }
             return lstt;
+        }
+
+        string GetHtmlFromWeb(string url)
+        {
+            WebClient client = new WebClient();
+            client.Encoding = Encoding.UTF8;
+            string str = client.DownloadString("http://www.naver.com/");
+            client.Dispose();
+            return str;
         }
 
         string[] StringSplit(string str, string sep)
