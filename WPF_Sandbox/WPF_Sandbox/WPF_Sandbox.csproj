@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="hitrend.xaml.cs">
+      <DependentUpon>hitrend.xaml</DependentUpon>
+    </Compile>
     <Compile Include="uptrend.xaml.cs">
       <DependentUpon>uptrend.xaml</DependentUpon>
     </Compile>
+    <Page Include="hitrend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

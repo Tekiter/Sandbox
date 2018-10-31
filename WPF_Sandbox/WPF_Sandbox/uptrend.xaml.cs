@@ -70,4 +70,5 @@ namespace WPF_Sandbox
             return str.Split(new string[] { sep }, StringSplitOptions.RemoveEmptyEntries);
         }
     }
+
 }
