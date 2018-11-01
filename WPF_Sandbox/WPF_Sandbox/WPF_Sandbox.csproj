@@ -58,6 +58,9 @@
     <Compile Include="hitrend.xaml.cs">
       <DependentUpon>hitrend.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Solartrend_sword.xaml.cs">
+      <DependentUpon>Solartrend_sword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="uptrend.xaml.cs">
       <DependentUpon>uptrend.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Solartrend_sword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="uptrend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

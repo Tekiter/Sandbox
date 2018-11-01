@@ -45,7 +45,8 @@ namespace WPF_Sandbox
 
         private void solartrend_click(object sender, RoutedEventArgs e)
         {
-
+            Solartrend_sword search_word = new Solartrend_sword();
+            search_word.Show();
         }
     }
 }
