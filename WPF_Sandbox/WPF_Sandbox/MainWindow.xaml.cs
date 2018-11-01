@@ -48,5 +48,11 @@ namespace WPF_Sandbox
             Solartrend_sword search_word = new Solartrend_sword();
             search_word.Show();
         }
+
+        private void simplenotepad_click(object sender, RoutedEventArgs e)
+        {
+            SimpleNotepad win = new SimpleNotepad();
+            win.Show();
+        }
     }
 }

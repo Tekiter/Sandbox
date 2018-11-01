@@ -19,6 +19,7 @@
             <Button Content="merong" Click="merong_click" />
             <Button Content="hi2yeoni 실검" Click="hitrend_click" />
             <Button Content="solar 실검" Click="solartrend_click" />
+            <Button Content="Simple Notepad" Click="simplenotepad_click"/>
         </WrapPanel>
 	</Grid>
 </Window>
