@@ -21,7 +21,9 @@
                 <MenuItem Header="끝내기(_X)" Click="menu_file_exit_click"/>
             </MenuItem>
             <MenuItem Header="편집(_E)"/>
-            <MenuItem Header="서식(_O)"/>
+            <MenuItem Header="서식(_O)" Click="menu_form_autoline_click" >
+                <MenuItem Header="자동 줄 바꿈(_W)" x:Name="menu_form_autoline" IsCheckable="True"/>
+            </MenuItem>
             <MenuItem Header="보기(_V)"/>
             <MenuItem Header="도움말(_H)"/>
         </Menu>

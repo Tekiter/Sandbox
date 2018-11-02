@@ -30,7 +30,7 @@ namespace WPF_Sandbox
 
         #region MenuEvents
 
-       
+
 
         private void menu_file_exit_click(object sender, RoutedEventArgs e)
         {
@@ -45,21 +45,7 @@ namespace WPF_Sandbox
 
         private void menu_file_open_click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "텍스트 파일|*.txt|모든 파일|*.*";
-            dialog.Title = "열기";
-
-            if (dialog.ShowDialog() == true)
-            {
-                string buf;
-                if (Open(dialog.FileName, out buf))
-                {
-                    txt_main.Text = buf;
-                } else
-                {
-                    MessageBox.Show("파일을 읽는데 실패했습니다.");
-                }
-            }
+            ShowOpenFile();
         }
 
 
@@ -73,11 +59,47 @@ namespace WPF_Sandbox
             ShowSaveFileAs();
         }
 
+        private void menu_form_autoline_click(object sender, RoutedEventArgs e)
+        {
+            if (menu_form_autoline.IsChecked)
+            {
+                MessageBox.Show("체크됨!");
+            }
+            else
+            {
+                MessageBox.Show("체크 안됨!");
+            }
+        }
+
         #endregion
 
         #region FileActions
 
-        void ShowSaveFileAs()
+        bool ShowOpenFile()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "텍스트 파일|*.txt|모든 파일|*.*";
+            dialog.Title = "열기";
+
+            if (dialog.ShowDialog() == true)
+            {
+                string buf;
+                string filename = dialog.FileName;
+                if (Open(filename, out buf))
+                {
+                    txt_main.Text = buf;
+                    this.Title = filename;
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("파일을 읽는데 실패했습니다.");
+                }
+            }
+            return false;
+        }
+
+        bool ShowSaveFileAs()
         {
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "텍스트 파일|*.txt|모든 파일|*.*";
@@ -88,7 +110,7 @@ namespace WPF_Sandbox
                 string path = dialog.FileName;
                 if (SaveAs(path, txt_main.Text))
                 {
-
+                    return true;
                 }
                 else
                 {
@@ -96,6 +118,7 @@ namespace WPF_Sandbox
                 }
             }
 
+            return false;
         }
 
         #endregion
@@ -119,7 +142,7 @@ namespace WPF_Sandbox
             {
                 return false;
             }
-            
+
         }
 
 
@@ -146,10 +169,12 @@ namespace WPF_Sandbox
 
                 return false;
             }
-            
+
         }
 
+
         #endregion
+
 
     }
 }
