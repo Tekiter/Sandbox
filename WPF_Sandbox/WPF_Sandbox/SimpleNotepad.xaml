@@ -28,7 +28,7 @@
             <MenuItem Header="도움말(_H)"/>
         </Menu>
 
-        <TextBox x:Name="txt_main" Grid.Row="1" TextWrapping="Wrap"
+        <TextBox x:Name="txt_main" Grid.Row="1" TextWrapping="NoWrap" AcceptsReturn="True" 
             VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" />
 
     </Grid>
