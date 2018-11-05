@@ -17,19 +17,16 @@ using System.Windows.Shapes;
 namespace WPF_Sandbox
 {
     /// <summary>
-    /// SimpleNotepad.xaml에 대한 상호 작용 논리
+    /// J_notepad.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class SimpleNotepad : Window
+    public partial class J_notepad : Window
     {
-
-
-        public SimpleNotepad()
+        public J_notepad()
         {
             InitializeComponent();
         }
 
         #region MenuEvents
-
 
 
         private void menu_file_exit_click(object sender, RoutedEventArgs e)
@@ -64,10 +61,12 @@ namespace WPF_Sandbox
             if (menu_form_autoline.IsChecked)
             {
                 MessageBox.Show("체크됨!");
+                txt_main.TextWrapping = System.Windows.TextWrapping.Wrap;
             }
             else
             {
                 MessageBox.Show("체크 안됨!");
+                txt_main.TextWrapping = System.Windows.TextWrapping.NoWrap;
             }
         }
 
