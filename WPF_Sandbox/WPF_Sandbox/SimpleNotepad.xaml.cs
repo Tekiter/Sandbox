@@ -77,17 +77,20 @@ namespace WPF_Sandbox
 
         bool ShowOpenFile()
         {
+            // 파일 열기 창을 띄우는 로직
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "텍스트 파일|*.txt|모든 파일|*.*";
+            dialog.Filter = "텍스트 파일|*.txt|모든 파일|*.*"; // 어떤 파일만 보이게 할지 결정
             dialog.Title = "열기";
 
-            if (dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true)        // 유저가 확인을 눌렀을 시
             {
                 string buf;
                 string filename = dialog.FileName;
-                if (Open(filename, out buf))
+
+
+                if (Open(filename, out buf))        // 유저가 누른 파일을 읽어옴
                 {
-                    txt_main.Text = buf;
+                    txt_main.Text = buf;        // 읽은 파일의 내용을 텍스트박스에 넣음
                     this.Title = filename;
                     return true;
                 }
@@ -125,22 +128,22 @@ namespace WPF_Sandbox
 
         #region FileIO
 
-        bool SaveAs(string path, string data)
+        bool SaveAs(string path, string data) // 지정된 파일에 내용을 저장한다
         {
             try
             {
-                StreamWriter writer = new StreamWriter(path);
+                StreamWriter writer = new StreamWriter(path); // File *pf = fopen(path) 와 유사
 
-                writer.Write(data);
+                writer.Write(data); // 연 파일에 데이터 쓰기
 
                 writer.Close();
                 writer.Dispose();
 
-                return true;
+                return true; // 파일 쓰기 성공
             }
-            catch (IOException)
+            catch (IOException) // 파일이 사용중이라던가 같은 이유로 예외가 날때
             {
-                return false;
+                return false; // 파일 쓰기 실패
             }
 
         }
@@ -151,23 +154,23 @@ namespace WPF_Sandbox
         //    
         //}
 
-        bool Open(string path, out string data)
+        bool Open(string path, out string data) // 지정된 파일의 내용을 읽어온다
         {
             data = "";
             try
             {
-                StreamReader reader = new StreamReader(path);
+                StreamReader reader = new StreamReader(path); // path의 파일을 열고
 
-                data = reader.ReadToEnd();
+                data = reader.ReadToEnd(); // 그 파일의 내용을 끝까지 읽는다
 
                 reader.Close();
                 reader.Dispose();
-                return true;
+                return true; // 파일 읽기 성공
             }
             catch (IOException)
             {
 
-                return false;
+                return false; // 파일 읽기 실패
             }
 
         }
