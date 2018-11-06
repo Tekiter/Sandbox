@@ -30,6 +30,6 @@
         </Menu>
 
         <TextBox x:Name="txt_main" Grid.Row="1" TextWrapping="NoWrap" AcceptsReturn="True" 
-            VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" />
+            VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" TextChanged="txt_main_TextChanged"/>
     </Grid>
 </Window>
