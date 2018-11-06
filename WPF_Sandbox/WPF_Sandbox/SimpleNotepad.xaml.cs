@@ -154,7 +154,6 @@ namespace WPF_Sandbox
            
         //}
 
-
         bool Open(string path, out string data) // 지정된 파일의 내용을 읽어온다
         {
             data = "";

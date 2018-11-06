@@ -20,7 +20,10 @@
             <Button Content="hi2yeoni 실검" Click="hitrend_click" />
             <Button Content="solar 실검" Click="solartrend_click" />
             <Button Content="Simple Notepad" Click="simplenotepad_click"/>
+            <Button Content="EZ-RSP" Height="80" Margin="0" Width="103"/>
             <Button Content="j-Notepad" Click="j_notepad_click"/>
+            
         </WrapPanel>
+
 	</Grid>
 </Window>
