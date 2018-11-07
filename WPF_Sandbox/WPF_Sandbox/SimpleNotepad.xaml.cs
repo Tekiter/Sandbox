@@ -21,37 +21,82 @@ namespace WPF_Sandbox
     /// </summary>
     public partial class SimpleNotepad : Window
     {
+        string currentFileNameValue;
+        string currentFileName
+        {
+            get
+            {
+                return currentFileNameValue;
+            }
+            set
+            {
+                currentFileNameValue = value;
+                if (string.IsNullOrEmpty(value))
+                {
+                    this.Title = "제목 없음 - SimpleNotepad";
+                }
+                else
+                {
 
+                    this.Title = System.IO.Path.GetFileName(value) + " - SimpleNotepad";
+                }
+            }
+        }
+
+
+
+        bool isSaved;
 
         public SimpleNotepad()
         {
             InitializeComponent();
+            currentFileName = "";
+            isSaved = true;
         }
 
         #region MenuEvents
 
 
-
         private void menu_file_exit_click(object sender, RoutedEventArgs e)
         {
             this.Close();
+
         }
 
         private void menu_file_new_click(object sender, RoutedEventArgs e)
         {
+            if (!isSaved)
+            {
+                if (!SaveFileAsk())
+                {
+                    return;
+                }
+            }
+
             txt_main.Text = "";
+            currentFileName = "";
+            isSaved = true;
+
+
 
         }
 
         private void menu_file_open_click(object sender, RoutedEventArgs e)
         {
+            if (!isSaved)
+            {
+                if (!SaveFileAsk())
+                {
+                    return;
+                }
+            }
             ShowOpenFile();
         }
 
 
         private void menu_file_save_click(object sender, RoutedEventArgs e)
         {
-
+            SaveFile();
         }
 
         private void menu_file_saveas_click(object sender, RoutedEventArgs e)
@@ -63,17 +108,37 @@ namespace WPF_Sandbox
         {
             if (menu_form_autoline.IsChecked)
             {
-                MessageBox.Show("체크됨!");
+                txt_main.TextWrapping = TextWrapping.WrapWithOverflow;
             }
             else
             {
-                MessageBox.Show("체크 안됨!");
+                txt_main.TextWrapping = TextWrapping.NoWrap;
             }
+        }
+
+
+        private void txt_main_changed(object sender, TextChangedEventArgs e)
+        {
+            isSaved = false;
+        }
+
+
+        private void window_closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!isSaved)
+            {
+                if (!SaveFileAsk())
+                {
+                    e.Cancel = true;
+                }
+            }
+
         }
 
         #endregion
 
         #region FileActions
+
 
         bool ShowOpenFile()
         {
@@ -92,6 +157,8 @@ namespace WPF_Sandbox
                 {
                     txt_main.Text = buf;        // 읽은 파일의 내용을 텍스트박스에 넣음
                     this.Title = filename;
+                    isSaved = true;
+                    currentFileName = filename;
                     return true;
                 }
                 else
@@ -99,6 +166,29 @@ namespace WPF_Sandbox
                     MessageBox.Show("파일을 읽는데 실패했습니다.");
                 }
             }
+            return false;
+        }
+
+        bool SaveFile()
+        {
+            if (!string.IsNullOrEmpty(currentFileName))
+            {
+                if (SaveAs(currentFileName, txt_main.Text))
+                {
+                    isSaved = true;
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("파일을 저장하는 데 실패했습니다.");
+                }
+            }
+            else
+            {
+                return ShowSaveFileAs();
+            }
+
+
             return false;
         }
 
@@ -113,6 +203,8 @@ namespace WPF_Sandbox
                 string path = dialog.FileName;
                 if (SaveAs(path, txt_main.Text))
                 {
+                    currentFileName = path;
+                    isSaved = true;
                     return true;
                 }
                 else
@@ -124,6 +216,34 @@ namespace WPF_Sandbox
             return false;
         }
 
+        bool SaveFileAsk()
+        {
+            MessageBoxResult result;
+
+            if (string.IsNullOrEmpty(currentFileName))
+            {
+                result = MessageBox.Show("변경 내용을 제목 없음에 저장하시겠습니까?", "Simple Notepad", MessageBoxButton.YesNoCancel);
+
+            }
+            else
+            {
+                result = MessageBox.Show("변경 내용을 " + System.IO.Path.GetFileName(currentFileName) + "에 저장하시겠습니까?", "Simple Notepad", MessageBoxButton.YesNoCancel);
+            }
+
+            if (result == MessageBoxResult.Yes)
+            {
+                return SaveFile();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+
         #endregion
 
         #region FileIO
@@ -132,7 +252,8 @@ namespace WPF_Sandbox
         {
             try
             {
-                StreamWriter writer = new StreamWriter(path); // File *pf = fopen(path) 와 유사
+                StreamWriter writer = new StreamWriter(path, false, Encoding.UTF8); // File *pf = fopen(path) 와 유사
+
 
                 writer.Write(data); // 연 파일에 데이터 쓰기
 
@@ -159,7 +280,7 @@ namespace WPF_Sandbox
             data = "";
             try
             {
-                StreamReader reader = new StreamReader(path); // path의 파일을 열고
+                StreamReader reader = new StreamReader(path, Encoding.UTF8); // path의 파일을 열고
 
                 data = reader.ReadToEnd(); // 그 파일의 내용을 끝까지 읽는다
 
@@ -176,8 +297,8 @@ namespace WPF_Sandbox
         }
 
 
-        #endregion
 
+        #endregion
 
     }
 }

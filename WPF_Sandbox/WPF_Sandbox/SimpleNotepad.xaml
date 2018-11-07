@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Sandbox"
         mc:Ignorable="d"
-        Title="제목 없음 - SimpleNotepad" Height="467.561" Width="411.463">
+        Title="제목 없음 - SimpleNotepad" Height="467.561" Width="411.463" Closing="window_closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -29,7 +29,7 @@
         </Menu>
 
         <TextBox x:Name="txt_main" Grid.Row="1" TextWrapping="NoWrap" AcceptsReturn="True" 
-            VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" />
+            VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" TextChanged="txt_main_changed" />
 
     </Grid>
 </Window>
