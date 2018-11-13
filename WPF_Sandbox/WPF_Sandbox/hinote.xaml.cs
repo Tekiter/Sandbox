@@ -139,7 +139,7 @@ namespace WPF_Sandbox
                 string buf;
                 string filename = dialog.FileName;
 
-                if(Open(filename,out buf))
+                if(ShowOpenFile(filename,out buf))
                 {
                     txt_main.Text = buf;
                     this.Title = filename;
@@ -244,7 +244,7 @@ namespace WPF_Sandbox
             }
         }
 
-        bool Open (string path, out string data)
+        bool ShowOpenFile(string path, out string data)
         {
             data = "";
             try
