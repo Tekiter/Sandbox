@@ -6,30 +6,33 @@
         xmlns:local="clr-namespace:WPF_Sandbox"
         mc:Ignorable="d"
         Title="제목 없음 - SimpleNotepad" Height="467.561" Width="411.463" Closing="window_closing">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Menu>
-            <MenuItem Header="파일(_F)">
-                <MenuItem Header="새로 만들기(_N)" Click="menu_file_new_click"/>
-                <MenuItem Header="열기(_O)..." Click="menu_file_open_click"/>
-                <MenuItem Header="저장(_S)" Click="menu_file_save_click"/>
-                <MenuItem Header="다른 이름으로 저장(_A)..." Click="menu_file_saveas_click"/>
-                <Separator/>
-                <MenuItem Header="끝내기(_X)" Click="menu_file_exit_click"/>
-            </MenuItem>
-            <MenuItem Header="편집(_E)"/>
-            <MenuItem Header="서식(_O)" Click="menu_form_autoline_click" >
-                <MenuItem Header="자동 줄 바꿈(_W)" x:Name="menu_form_autoline" IsCheckable="True"/>
-            </MenuItem>
-            <MenuItem Header="보기(_V)"/>
-            <MenuItem Header="도움말(_H)"/>
-        </Menu>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="4*"/>
+			<ColumnDefinition Width="23*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Menu Grid.ColumnSpan="2" Margin="0,0,-0.2,70">
+			<MenuItem Header="파일(_F)">
+				<MenuItem Header="새로 만들기(_N)" Click="menu_file_new_click"/>
+				<MenuItem Header="열기(_O)..." Click="menu_file_open_click"/>
+				<MenuItem Header="저장(_S)" Click="menu_file_save_click"/>
+				<MenuItem Header="다른 이름으로 저장(_A)..." Click="menu_file_saveas_click"/>
+				<Separator/>
+				<MenuItem Header="끝내기(_X)" Click="menu_file_exit_click"/>
+			</MenuItem>
+			<MenuItem Header="편집(_E)"/>
+			<MenuItem Header="서식(_O)" Click="menu_form_autoline_click" >
+				<MenuItem Header="자동 줄 바꿈(_W)" x:Name="menu_form_autoline" IsCheckable="True"/>
+			</MenuItem>
+			<MenuItem Header="보기(_V)"/>
+			<MenuItem Header="도움말(_H)"/>
+		</Menu>
+		<TextBox x:Name="txt_main" TextWrapping="NoWrap" AcceptsReturn="True" 
+            VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" TextChanged="txt_main_changed" Grid.ColumnSpan="2" Margin="0,18,-0.2,-0.4" Grid.RowSpan="2" />
 
-        <TextBox x:Name="txt_main" Grid.Row="1" TextWrapping="NoWrap" AcceptsReturn="True" 
-            VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" TextChanged="txt_main_changed" />
-
-    </Grid>
+	</Grid>
 </Window>

@@ -6,15 +6,18 @@
         xmlns:local="clr-namespace:WPF_Sandbox"
         mc:Ignorable="d"
         Title="hitrend" Height="450" Width="504.756">
+	<Window.Resources>
+		<Style TargetType="ListBox">
+			<Setter Property="FontFamily" Value="Comic Sans MS"/>
+			<Setter Property="FontSize" Value="15"/>
+			<Setter Property="BorderBrush" Value="#D6F3FB"/>
+			<Setter Property="BorderThickness" Value="3"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+
+		</Style>
+	</Window.Resources>
 	<Grid Margin="25,0,34.6,0">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="220*"/>
-			<RowDefinition/>
-			<RowDefinition Height="199*"/>
-		</Grid.RowDefinitions>
-		<Button Content="실시간 검색어" HorizontalAlignment="Left" Height="37" Margin="23,21,0,0" VerticalAlignment="Top" Width="138" Click="hitrend_click"/>
-		<ListBox x:Name ="lst" HorizontalAlignment="Left" Height="325" VerticalAlignment="Top" Width="387" Margin="23,74,0,0" Grid.RowSpan="3"/>
-
-
+		<Button Content="실시간 검색어" Name="trend" HorizontalAlignment="Left" Height="45" Margin="95,24,0,0" VerticalAlignment="Top" Width="245" Background="#D6F3FB" FontSize="18" Click="hitrend_click"/>
+		<ListBox x:Name ="lst" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="245" Margin="95,96,0,0" Grid.RowSpan="3"/>
 	</Grid>
 </Window>

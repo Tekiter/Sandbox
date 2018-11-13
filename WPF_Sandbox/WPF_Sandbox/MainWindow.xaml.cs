@@ -54,5 +54,11 @@ namespace WPF_Sandbox
             SimpleNotepad win = new SimpleNotepad();
             win.Show();
         }
+
+        private void hinote_click(object sender, RoutedEventArgs e)
+        {
+            hinote win = new hinote();
+            win.Show();
+        }
     }
 }
