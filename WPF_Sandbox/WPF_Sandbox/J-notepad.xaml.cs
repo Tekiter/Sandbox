@@ -240,5 +240,10 @@ namespace WPF_Sandbox
         {
             change_check = false;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("아직 구현이 되지 않은 기능입니다");
+        }
     }
 }

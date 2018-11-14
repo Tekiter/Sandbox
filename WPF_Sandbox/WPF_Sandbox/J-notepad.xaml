@@ -26,7 +26,7 @@
                 <MenuItem Header="자동 줄 바꿈(_W)" x:Name="menu_form_autoline" IsCheckable="True"/>
             </MenuItem>
             <MenuItem Header="보기(_V)"/>
-            <MenuItem Header="도움말(_H)"/>
+            <MenuItem Header="도움말(_H)" Click="MenuItem_Click"/>
         </Menu>
 
         <TextBox x:Name="txt_main" Grid.Row="1" TextWrapping="NoWrap" AcceptsReturn="True" 
