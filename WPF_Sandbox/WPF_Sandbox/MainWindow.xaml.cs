@@ -60,5 +60,10 @@ namespace WPF_Sandbox
             hinote win = new hinote();
             win.Show();
         }
+
+        private void j_notepad_click()
+        {
+
+        }
     }
 }
