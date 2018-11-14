@@ -6,22 +6,23 @@
         xmlns:local="clr-namespace:WPF_Sandbox"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-	<Grid>
-		<WrapPanel >
-			<WrapPanel.Resources>
-				<Style TargetType="{x:Type Button}">
-					<Setter Property="Height" Value="80"/>
-					<Setter Property="Width" Value="100"/>
-					<Setter Property="Margin" Value="5"/>
-				</Style>
-			</WrapPanel.Resources>
-			<Button Content="실검 list" Click="uptrend_click" />
-			<Button Content="merong" Click="merong_click" />
-			<Button Content="hi2yeoni 실검" Click="hitrend_click" />
-			<Button Content="solar 실검" Click="solartrend_click" />
-			<Button Content="Simple Notepad" Click="simplenotepad_click"/>
-			<Button Content="EZ-RSP" Height="80" Margin="0" Width="103"/>
-			<Button Content="HI Notepad" Click="hinote_click"/>
-		</WrapPanel>
-	</Grid>
+    <Grid>
+            <WrapPanel >
+                <WrapPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Height" Value="80"/>
+                        <Setter Property="Width" Value="100"/>
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </WrapPanel.Resources>
+                <Button Content="실검 list" Click="uptrend_click" />
+                <Button Content="merong" Click="merong_click" />
+                <Button Content="hi2yeoni 실검" Click="hitrend_click" />
+                <Button Content="solar 실검" Click="solartrend_click" />
+                <Button Content="Simple Notepad" Click="simplenotepad_click"/>
+                <Button Content="EZ-RSP" Height="80" Margin="0" Width="103"/>
+                <Button Content="HI Notepad" Click="hinote_click"/>
+            <Button Content="j-Notepad" Click="j_notepad_click"/>
+        </WrapPanel>
+        </Grid>
 </Window>

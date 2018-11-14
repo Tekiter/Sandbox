@@ -58,6 +58,9 @@
     <Compile Include="hitrend.xaml.cs">
       <DependentUpon>hitrend.xaml</DependentUpon>
     </Compile>
+    <Compile Include="J-notepad.xaml.cs">
+      <DependentUpon>J-notepad.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SimpleNotepad.xaml.cs">
       <DependentUpon>SimpleNotepad.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
       <DependentUpon>hinote.xaml</DependentUpon>
     </Compile>
     <Page Include="hitrend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="J-notepad.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
