@@ -30,7 +30,9 @@
 			<MenuItem Header="보기"/>
 			<MenuItem Header="도움말"/>
 		</Menu>
+
 		<TextBox x:Name="txt_main" TextWrapping="NoWrap" AcceptsReturn="True"
-				 VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" TextChanged="txt_main_changed" Margin="0,25,0,9.6" Grid.RowSpan="2" HorizontalAlignment="Left" Width="460" Grid.ColumnSpan="2" />
+				 VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" TextChanged="txt_main_changed" Margin="0,25,0,9.6" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Grid.ColumnSpan="2" />
 	</Grid>
+
 </Window>

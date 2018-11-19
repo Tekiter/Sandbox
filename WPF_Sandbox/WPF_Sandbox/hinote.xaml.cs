@@ -19,6 +19,7 @@ namespace WPF_Sandbox
     /// <summary>
     /// hinote.xaml에 대한 상호 작용 논리
     /// </summary>
+
    
     public partial class hinote : Window
     {
@@ -55,7 +56,17 @@ namespace WPF_Sandbox
         //메뉴들 ----------
         private void menu_file_exit_click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (!isSaved)
+            {
+                if (!SaveFileAsk())
+                {
+                    return;
+                }
+            }
+            
+              this.Close();
+            
+        
         }
 
         private void menu_file_new_click(object sender, RoutedEventArgs e)
@@ -96,6 +107,8 @@ namespace WPF_Sandbox
             ShowSaveFileAs();   
         }
 
+     
+
         private void menu_form_autoline_click(object sender, RoutedEventArgs e)
         {
             if(menu_form_autoline.IsChecked) //자동줄바꿈 선택했을 때
@@ -110,6 +123,7 @@ namespace WPF_Sandbox
 
         private void txt_main_changed(object sender, TextChangedEventArgs e)
         {
+           
             isSaved = false;
         }
 
@@ -206,11 +220,11 @@ namespace WPF_Sandbox
 
             if(string.IsNullOrEmpty(currentFileName))
             {
-                result = MessageBox.Show("변경 내용을 제목 없음에 저장하시겠습니까?");
+                result = MessageBox.Show("변경 내용을 제목 없음에 저장하시겠습니까?", "Hinote", MessageBoxButton.YesNoCancel);
             }
             else
             {
-                result = MessageBox.Show("변경 내용을 " + System.IO.Path.GetFileName(currentFileName) + "에 저장하시겠습니까?", "hinote", MessageBoxButton.YesNoCancel);
+                result = MessageBox.Show("변경 내용을 " + System.IO.Path.GetFileName(currentFileName) + "에 저장하시겠습니까?", "Hinote", MessageBoxButton.YesNoCancel);
             }
 
             if (result == MessageBoxResult.Yes)
