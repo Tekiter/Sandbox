@@ -66,5 +66,11 @@ namespace WPF_Sandbox
             J_notepad j_note = new J_notepad();
             j_note.Show();
         }
+
+        private void designed_click(object sender, RoutedEventArgs e)
+        {
+            Designed win = new Designed();
+            win.Show();
+        }
     }
 }

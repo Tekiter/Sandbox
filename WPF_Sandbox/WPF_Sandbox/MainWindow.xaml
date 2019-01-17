@@ -23,6 +23,7 @@
                 <Button Content="EZ-RSP" Height="80" Margin="0" Width="103"/>
                 <Button Content="HI Notepad" Click="hinote_click"/>
                 <Button Content="j-Notepad" Click="j_notepad_click"/>
+                <Button Content="Designed" Click="designed_click"/>
         </WrapPanel>
         </Grid>
 </Window>

@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Class1.cs" />
+    <Compile Include="Designed.xaml.cs">
+      <DependentUpon>Designed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="hitrend.xaml.cs">
       <DependentUpon>hitrend.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
     <Compile Include="hinote.xaml.cs">
       <DependentUpon>hinote.xaml</DependentUpon>
     </Compile>
+    <Page Include="Designed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="hitrend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
