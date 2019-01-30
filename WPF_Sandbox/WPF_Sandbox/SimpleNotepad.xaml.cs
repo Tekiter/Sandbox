@@ -252,7 +252,7 @@ namespace WPF_Sandbox
         {
             try
             {
-                StreamWriter writer = new StreamWriter(path, false, Encoding.UTF8); // File *pf = fopen(path) 와 유사
+                StreamWriter writer = new StreamWriter(path,false,Encoding.UTF8); // File *pf = fopen(path) 와 유사
 
 
                 writer.Write(data); // 연 파일에 데이터 쓰기
