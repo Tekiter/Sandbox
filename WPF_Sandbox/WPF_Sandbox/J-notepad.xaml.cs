@@ -38,7 +38,7 @@ namespace WPF_Sandbox
 
         private void menu_file_exit_click(object sender, RoutedEventArgs e)
         {
-            Exit_check();
+            this.Close();
         }
 
         private void menu_file_new_click(object sender, RoutedEventArgs e)
@@ -182,34 +182,7 @@ namespace WPF_Sandbox
             }
         }
 
-        void Exit_check()
-        {
-            SaveFileDialog dialog = new SaveFileDialog();
-            if (change_check) this.Close();
-            else
-            {
-                if (save_file_path == "")
-                {
-                    MessageBoxResult result = MessageBox.Show("변경내용을 제목없음에 저장하시겠습니까?", "", MessageBoxButton.YesNo);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        SaveAs(save_file_path, txt_main.Text);
-                        this.Close();
-                    }
-                    else this.Close();
-                }
-                else
-                {
-                    MessageBoxResult result = MessageBox.Show("변경사항을 저장하시겠습니까?", "", MessageBoxButton.YesNo);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        SaveAs(save_file_path, txt_main.Text);
-                        this.Close();
-                    }
-                    else this.Close();
-                }
-            }
-        }
+   
 
         bool Open(string path, out string data) // 지정된 파일의 내용을 읽어온다
         {
@@ -245,5 +218,38 @@ namespace WPF_Sandbox
         {
             MessageBox.Show("아직 구현이 되지 않은 기능입니다");
         }
+
+       
+        private void x_click(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!change_check)
+            {
+                if (save_file_path == "")
+                {
+                    MessageBoxResult result = MessageBox.Show("변경내용을 제목없음에 저장하시겠습니까?", "", MessageBoxButton.YesNoCancel);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        SaveAs(save_file_path, txt_main.Text);
+                    }
+                    else if (result == MessageBoxResult.Cancel)
+                    {
+                        e.Cancel = true;//ture 로 바꾸면 x 버튼 누르거나 닫을때 닫히는게 취소된걸로 인식해서 닫히는 이벤트를 취소
+                    }
+                }
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("변경사항을 저장하시겠습니까?", "", MessageBoxButton.YesNoCancel);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        SaveAs(save_file_path, txt_main.Text);
+                    }
+                    else if (result == MessageBoxResult.Cancel)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
+      
     }
 }

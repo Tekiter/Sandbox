@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Sandbox"
         mc:Ignorable="d"
-        Title="제목없음-메모장" Height="467.561" Width="411.463">
+        Title="제목없음-메모장" Height="467.561" Width="411.463" Closing="x_click">
         
     <Grid>
         <Grid.RowDefinitions>

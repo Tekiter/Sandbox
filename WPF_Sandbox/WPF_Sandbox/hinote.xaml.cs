@@ -261,6 +261,11 @@ namespace WPF_Sandbox
                 return false; //파일 읽기 실패
             }   
         }
+
+        private void x_click(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
    
     
